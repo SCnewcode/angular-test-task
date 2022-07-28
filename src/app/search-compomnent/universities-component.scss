@@ -1,0 +1,166 @@
+
+.main-container {
+  min-height: 100vh;
+  height: 100%;
+}
+
+.footer-container {
+    display: block;
+    height: 100px;
+    background-color: #000000;
+    width: 100%;
+    p{
+      font-size: 18px;
+      padding-top: 10px;
+      text-align: center;
+      color: #fff;
+    }
+    p:last-child{
+      color: #00A82D;
+    }
+}
+
+h1{
+  span{
+    color: #00A82D;
+  }
+}
+
+.container-table {
+  padding-left: 25px;
+  padding-right: 25px;
+  min-height: 71vh;
+  margin-top: 45px;
+  margin-bottom: 55px;
+}
+
+table {
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.text-center-header {
+  display: block;
+  text-align: center;
+  background-color: #000000;
+  height: 70px;
+
+}
+
+.title {
+   color: #fff;
+   padding-top: 20px;
+}
+
+td, th {
+  width: 25%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+tr.element-row:not(.expanded-row):hover {
+  background: whitesmoke;
+}
+
+tr.element-row:not(.expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.element-detail {
+  overflow: hidden;
+  display: flex;
+}
+
+.element-diagram {
+  min-width: 80px;
+  border: 2px solid black;
+  padding: 8px;
+  font-weight: lighter;
+  margin: 8px 0;
+  height: 104px;
+}
+
+.element-symbol {
+  font-weight: bold;
+  font-size: 40px;
+  line-height: normal;
+}
+
+.element-description {
+  padding: 16px;
+}
+
+.element-description-attribution {
+  opacity: 0.5;
+}
+
+p {
+  font-family: Lato;
+}
+
+section {
+  display: flex;
+  align-items: flex-start;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-flex {
+  height: 50px !important
+}
+
+::ng-deep .mat-form-field-infix {
+  padding-top: 1px !important;
+}
+
+::ng-deep .mat-flat-button.mat-primary, .mat-raised-button.mat-primary, .mat-fab.mat-primary, .mat-mini-fab.mat-primary {
+  background-color: #000;
+}
+
+.mat-raised-button {
+  min-width: 45px;
+  min-height: 45px;
+  background-color: Transparent;
+  background-repeat:no-repeat;
+  border: none;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  align-content: left;
+  width: 40px;
+  padding-top: 8px;
+  padding-left: 0px;
+}
+
+.signs{
+  font-weight: bolder;
+  font-size: large;
+}
+
+.mat-ripple-element{
+  display: none !important;
+}
+
+.mat-input-element {
+  padding-top: 10px !important;
+}
+
+@media screen and (max-width: 450px) {
+  .table-container {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+  }
+ 
+
+}

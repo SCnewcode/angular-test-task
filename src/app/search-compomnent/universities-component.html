@@ -1,0 +1,105 @@
+
+<main class="mat-app-background main-container" style="padding-top: 0px; padding-left: 0px; padding-bottom: 0px; padding-right: 0px;" >
+  <section class="text-center-header">
+    <div class="container">
+      <h1 class="title"> Angular test task on <span>Material UI</span></h1>
+    </div>
+  </section>
+
+  <div class="container-table">
+
+<section>
+  <div class="button-container" style="margin-right: 5px;">
+
+  </div>
+
+  <div class="button-container" style="margin-right: 20px;">
+    <button mat-mini-fab color="primary" >
+      <mat-icon>search</mat-icon>
+    </button>
+  </div>
+
+  <ng-container>
+    <mat-form-field appearance="outline" class="mr-1">
+      <mat-label>Search</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="type something..." #input>
+    </mat-form-field>
+  </ng-container>
+</section>
+
+<div class="mat-elevation-z8" matRipple [matRippleDisabled]="true">
+  <table 
+  class="table-container"
+  mat-table 
+  [dataSource]="dataSource" 
+  matSort 
+  multiTemplateDataRows>
+
+    <ng-container matColumnDef="expand">
+      <th mat-header-cell *matHeaderCellDef  
+       style="width: 5% !important;"> </th>
+      <td mat-cell *matCellDef="let element" style="width: 5% !important;">
+          <span *ngIf="!element.isExpanded && element.isHaveDetails" class="signs">+</span>
+          <span *ngIf="element.isExpanded && element.isHaveDetails" class="signs">-</span>
+      </td>
+      <td mat-footer-cell *matFooterCellDef style="width: 5% !important;"></td>
+    </ng-container> 
+
+    <ng-container matColumnDef="alpha_two_code">
+      <th mat-header-cell *matHeaderCellDef  mat-sort-header style="width: 10% !important; font-weight: bold;"> Code </th>
+      <td mat-cell *matCellDef="let element" style="width: 10% !important;"> {{element.alpha_two_code}} </td>
+      <td mat-footer-cell *matFooterCellDef > </td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell  *matHeaderCellDef mat-sort-header style="width: 20% !important; font-weight: bold;"> Name </th>
+      <td mat-cell *matCellDef="let element" style="width: 20% !important;"> {{element.name}} </td>
+      <td mat-footer-cell *matFooterCellDef style="width: 20% !important;"></td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="web_pages">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 15% !important; font-weight: bold;"> Web pages </th>
+      <td  mat-cell *matCellDef="let element" style="width: 15% !important;"> {{element.web_pages}} </td>
+      <td mat-footer-cell *matFooterCellDef style="width: 15% !important;"></td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="domains">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header style="width: 20% !important; font-weight: bold;"> Domains </th>
+      <td mat-cell *matCellDef="let element" style="width: 20% !important;"> {{element.domains}} </td>
+      <td mat-footer-cell *matFooterCellDef style="width: 20% !important;"></td>
+    </ng-container>
+
+
+    <ng-container matColumnDef="expandedDetail">
+      <td mat-cell *matCellDef="let detail" [attr.colspan]="displayedColumns.length">
+          <p>this is content</p>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;" class="element-row" [class.expanded-row]="row.isExpanded" (click)="row.isHaveDetails ? expandCollapse(row) : null"> </tr>
+    <tr mat-row *matRowDef="let row; columns: ['expandedDetail']" [@detailExpand]="row.isExpanded == true ? 'expanded' : 'collapsed'" style="overflow: hidden"></tr>
+
+    <tr mat-footer-row *matFooterRowDef="displayedColumns; sticky: true"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+    </tr>
+  </table>
+
+  <mat-paginator  [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+</div>
+
+</div>
+
+
+<footer class="footer-container" >
+  <p> Angular test task  </p>
+  <p>{{dataNew}}</p>
+</footer>
+
+</main>
